@@ -1,0 +1,561 @@
+<html>
+<head>
+    <link rel="stylesheet" href="elephant.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+        }
+
+        .navbar .logo {
+            height: 80px;
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 1px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-center li a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .login-btn {
+            padding: 6px 14px;
+            background-color: #11a01b;
+            text-align: center;
+            width: 60px;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .user-info {
+            display: none;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-info.logged-in {
+            display: flex;
+        }
+
+        .user-avatar {
+            width: 24px;
+            height: 24px;
+            background: #007bff;
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            line-height: 24px;
+            font-size: 14px;
+        }
+
+        .logout-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        /* General Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(to bottom, #2c3e50, #4ca1af);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .donate-btn {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+        }
+
+        .donate-btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+        }
+
+        /* Photo Section */
+        .photo-section {
+            padding: 40px 0;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .photo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .phooto {
+            margin: 20px 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .phooto img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+
+        .phooto img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 0 20px;
+        }
+
+        .stats-title {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .stats-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .stats-title p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .facts {
+            flex: 1;
+            min-width: 200px;
+            margin: 15px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .facts:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .count-box {
+            padding: 20px;
+        }
+
+        .count-box i {
+            font-size: 40px;
+            color: #fff;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .count {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 10px 0;
+            background: linear-gradient(to right, #fff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .small {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #777;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: #f9f9f9;
+            padding: 60px 0;
+        }
+
+        .testimonial {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin: 20px auto;
+            max-width: 800px;
+            position: relative;
+        }
+
+        .testimonial:before {
+            content: '\201C';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 80px;
+            color: #e74c3c;
+            opacity: 0.3;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .author-details h4 {
+            margin: 0;
+            color: #333;
+        }
+
+        .author-details p {
+            margin: 5px 0 0;
+            color: #777;
+            font-style: normal;
+            font-size: 0.9rem;
+        }
+
+        /* Preserve the existing footer style */
+.footer
+{
+    width:100%;
+    height:150px;
+    display: flex;
+}
+.col-1 h3
+{
+    width: 250px;
+    font-size: 29px;
+    color: white;
+    /* border: 2px solid red;     */
+    /* margin-bottom: 20px; */
+    padding-left: 80px;
+}
+.col-1 a
+{
+    display: block;
+    line-height: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    text-align: center;
+}
+.col-1 a:hover
+{
+   color:rgb(225, 116, 48);
+}
+.col-2
+{
+    margin-left: 300px;
+}
+.col-2 h3
+{
+    font-size: 30px;
+    color: white;
+    border: 2px soild red;
+    margin-bottom: 20px;
+}
+.col-2 input
+{
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    height: 26px;
+}
+.col-2 button
+{
+    width: 80px;
+    height:25px;
+    font-size: 16px;
+    border-radius: 6px;
+}
+.col-2 button:hover
+{
+    background-color:rgb(225, 116, 48);
+}
+.col-3
+{
+    margin-left: 300px;
+}
+.col-3 h3
+{
+    color: white;
+    font-size: 29px;
+    margin-bottom: 20px;
+}
+.col-3 p
+{
+    color: white;
+    font-size: 18px;
+}
+/* fa-fa icons css */
+.col-3 li
+{
+    color: white;
+    display: inline;
+    padding-left: 20px;
+}
+.col-3 li a
+{
+    color: white;
+}
+
+        /* Keeping the navbar as it is */
+        .banner {
+            /* Existing styles should be in elephant.css */
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .stats-container {
+                flex-direction: column;
+            }
+            
+            .facts {
+                width: 100%;
+                margin: 10px 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .footer {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+        <div class="navbar">
+            <img src="photos/logo0001.png" alt="logo" class="logo">
+
+            <ul class="nav-center">
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="fundraiser.html">Fundraiser</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="mv.html">Missions & Values</a></li>
+                <li><a href="ecards.html">Send e-cards</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <a href="login.html" class="login-btn" id="loginBtn">Login</a>
+                <div class="user-info" id="userInfo">
+                    <div class="user-avatar" id="userAvatar">U</div>
+                    <span id="userName">Welcome, User!</span>
+                    <button class="logout-btn" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Help Save Elephants Today</h1>
+            <p>Your contribution makes a real difference in protecting these magnificent creatures and their habitats. Join our mission to ensure a safe future for elephants around the world.</p>
+            <a href="#donate" class="donate-btn">What Our Supporters Say</a>
+        </div>
+    </div>
+    <div class="stats-section">
+        <div class="stats-title">
+            <h2>Our Impact</h2>
+            <p>Through your generous support, we've been able to make significant progress in our mission to protect elephants.</p>
+        </div>
+        <div class="stats-container">
+            <div class="facts">
+                <div class="count-box"> 
+                    <i class="fa fa-heart"></i>
+                    <h4 class="count">625</h4>
+                    <p class="small">elephants rescued</p>
+                </div> 
+            </div>
+
+            <div class="facts">
+                <div class="count-box">
+                    <i class="fa fa-home"></i>
+                    <h4 class="count">250</h4>
+                    <p class="small">elephants adopted</p>
+                </div>
+            </div>
+
+            <div class="facts">
+                <div class="count-box">
+                    <i class="fa fa-users"></i>
+                    <h4 class="count">805</h4>
+                    <p class="small">happy donors</p>
+                </div>
+            </div>
+
+            <div class="facts">
+                <div class="count-box">
+                    <i class="fa fa-trophy"></i>
+                    <h4 class="count">152</h4>
+                    <p class="small">successful projects</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="projects-section">
+        <div class="projects-container">
+            <div class="section-title">
+                <h2>Current Fundraising Projects</h2>
+                <p>We have several ongoing initiatives that need your support. Every donation, no matter how small, contributes to our mission.</p>
+            </div>
+            
+            <div id="donate" class="fundraising-projects">
+                <!-- Project Cards could be added here in the future -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials-section">
+        <div class="section-title">
+            <h2>What Our Supporters Say</h2>
+        </div>
+        <div class="testimonial">
+            <p>"Supporting this organization has been incredibly rewarding. Knowing that my donations are making a real difference in the lives of elephants gives me a sense of purpose. I've even had the opportunity to visit one of their sanctuaries and see firsthand the amazing work they do."</p>
+            <div class="testimonial-author">
+                <img src="/api/placeholder/60/60" alt="Donor">
+                <div class="author-details">
+                    <h4>Sarah Johnson</h4>
+                    <p>Monthly Donor since 2021</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="footer">
+            <div class="col-1">
+                <h3>Useful Links</h3>
+                <a href="#">About</a>
+                <a href="#">Service</a>
+                <a href="#">Contact</a>
+                <a href="#">Donate</a>
+            </div>
+
+            <div class="col-2">
+                <h3>newsletter</h3>
+                <form>
+                    <input type="textarea" placeholder="Your E-mail"><br>
+                    <button onclick="alert('your submission has been noted. thank you!')">Submit</button>
+                </form>
+            </div>
+
+             <div class="col-3">
+                <h3>Contact</h3>
+                <p>123,XYZ road, BSK 3</p>
+                <p>bangalore, karnataka, IN</p><br>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li> 
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li> 
+                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li> 
+                
+             </div>
+        </div>
+</body>
+</html>
