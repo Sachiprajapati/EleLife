@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send E-Cards | Elephant Conservation</title>
+    <link rel="stylesheet" href="elephant.css">
+    <link rel="stylesheet" href="ecard-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        /* Keep original navbar styles from elephant.css */
+        
+        .page-container {
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 40px 20px;
+        }
+        
+        .ecards-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .page-header h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .header-icon {
+            font-size: 32px;
+            margin-right: 15px;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+        }
+        
+        .form-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .form1 {
+            width: 100%;
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+        }
+        
+        .input-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            /* No background color */
+            padding: 0;
+            border-radius: 0;
+        }
+        
+        .input-group input, 
+        .input-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: #fff;
+        }
+        
+        .input-group input:focus, 
+        .input-group textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        .input-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .submit-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(41, 128, 185, 0.3);
+        }
+        
+        .map-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .map-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+            height: 350px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .contact-info {
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-info h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+        }
+        
+        .contact-info p {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+        }
+        
+        .contact-info i {
+            margin-right: 15px;
+            color: #3498db;
+            width: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #3498db;
+            color: white;
+            border-radius: 50%;
+            font-size: 18px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            background: #2980b9;
+        }
+        
+        /* Added decorative elements */
+        .decorative-dots {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            opacity: 0.2;
+        }
+        
+        .dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .ecards-container {
+                width: 95%;
+                margin: 20px auto;
+            }
+            
+            .page-header h1 {
+                font-size: 26px;
+            }
+            
+            .input-group {
+                margin-bottom: 20px;
+            }
+        }
+    </style> -->
+
+</head>
+
+<body>
+    <!-- Original navigation code preserved exactly as requested -->
+    <div class="banner">
+        <div class="navbar">
+            <img src="photos/logo0001.png" alt="logo" class="logo">
+
+            <ul class="nav-center">
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="fundraiser.html">Fundraiser</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="mv.html">Missions & Values</a></li>
+                <li><a href="ecards.html">Send e-cards</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <a href="login.html" class="login-btn" id="loginBtn">Login</a>
+                <div class="user-info" id="userInfo">
+                    <div class="user-avatar" id="userAvatar">U</div>
+                    <span id="userName">Welcome, User!</span>
+                    <button class="logout-btn" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+
+    <div class="ecards-container">
+        <div class="page-header">
+            <h1><i class="fa fa-envelope header-icon"></i> Send Us Your E-Cards</h1>
+            <p>Share your thoughts and support for elephant conservation</p>
+
+            <!-- Decorative elements -->
+            <div class="decorative-dots">
+                <div class="dot" style="top: 0; left: 0;"></div>
+                <div class="dot" style="top: 0; left: 20px;"></div>
+                <div class="dot" style="top: 0; left: 40px;"></div>
+                <div class="dot" style="top: 20px; left: 0;"></div>
+                <div class="dot" style="top: 20px; left: 20px;"></div>
+                <div class="dot" style="top: 20px; left: 40px;"></div>
+                <div class="dot" style="top: 40px; left: 0;"></div>
+                <div class="dot" style="top: 40px; left: 20px;"></div>
+                <div class="dot" style="top: 40px; left: 40px;"></div>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="form-section">
+                <form class="form1">
+                    <div class="input-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" placeholder="Your first name">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" placeholder="Your last name">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" placeholder="Your E-mail">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="message">Leave us a few words:</label>
+                        <textarea id="message" placeholder="Share your message or e-card content here"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn"
+                        onclick="alert('Your e-card has been sent. Thank you for your support!')">
+                        <i class="fa fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+
+            <div class="map-section">
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108461.21790846428!2d77.52203909290257!3d12.984974667410972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1665577340032!5m2!1sen!2sin"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <div class="contact-info">
+                    <h3><i class="fa fa-info-circle"></i> Contact Information</h3>
+                    <p><i class="fa fa-map-marker"></i> 123 Elephant Ave, Bengaluru, Karnataka</p>
+                    <p><i class="fa fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fa fa-envelope-o"></i> contact@elephantconservation.org</p>
+
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fa fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="col-1">
+            <h3>Useful Links</h3>
+            <a href="#">About</a>
+            <a href="#">Service</a>
+            <a href="#">Contact</a>
+            <a href="#">Donate</a>
+        </div>
+
+        <div class="col-2">
+            <h3>newsletter</h3>
+            <form>
+                <input type="textarea" placeholder="Your E-mail"><br>
+                <button onclick="alert('your submission has been noted. thank you!')">Submit</button>
+            </form>
+        </div>
+
+        <div class="col-3">
+            <h3>Contact</h3>
+            <p>123,XYZ road, BSK 3</p>
+            <p>bangalore, karnataka, IN</p><br>
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li> 
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li> 
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li> 
+        </div>
+    </div>
+</body>
+
+</html>

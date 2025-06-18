@@ -1,0 +1,234 @@
+<!-- <html>
+<head>
+    <link rel="stylesheet" href="elephant.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <img src="photos/logo0001.png" alt="logo" class="logo">
+            <ul>
+                <li><a href="login.html">login</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="fundraiser.html">Fundraiser</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="mv.html">Missions & Values</a></li>
+                <li><a href="ecards.html">Send e-cards</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="ftext">
+                <h1>#IvoryFreeIndia</h1>
+            <p>In the past three years, 90 cases of seizure of elephant tusks/ivory have been reported in India along with 29 cases of poaching of elephants. The data were shared by the Ministry of Environment, Forest and Climate Change (MOEFCC) in the Lok Sabha on August 8. The highest number of cases of elephant tusk seizure was reported in 2021 with 42 cases, and incidents of poaching were the highest in the year 2021 with 14 incidents having been reported throughout the country.</p>
+            <a href="https://www.thehindu.com/sci-tech/energy-and-environment/29-elephant-poaching-cases-in-3-years-centre/article65762352.ece#:~:text=In%20the%20past%20three%20years%2C%2090%20cases,with%2029%20cases%20of%20poaching%20of%20elephants.&text=The%20highest%20number%20of%20cases%20of%20elephant,incidents%20having%20been%20reported%20throughout%20the%20country.">READ MORE</a>
+            </div>
+            <div class="fpicture">
+            </div>
+        </div>
+        </div>
+
+        <div class="footer">
+            <div class="col-1">
+                <h3>Useful Links</h3>
+                <a href="#">About</a>
+                <a href="#">Service</a>
+                <a href="#">Contact</a>
+                <a href="#">Donate</a>
+            </div>
+
+            <div class="col-2">
+                <h3>newsletter</h3>
+                <form>
+                    <input type="textarea" placeholder="Your E-mail"><br>
+                    <button onclick="alert('your submission has been noted. thank you!')">Submit</button>
+                </form>
+            </div>
+
+             <div class="col-3">
+                <h3>Contact</h3>
+                <p>123,XYZ road, BSK 3</p>
+                <p>bangalore, karnataka, IN</p><br>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li> 
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li> 
+                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li> 
+                
+             </div>
+        </div>
+    </body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="elephant.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+        }
+
+        .navbar .logo {
+            height: 80px;
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 1px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-center li a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .login-btn {
+            padding: 6px 14px;
+            background-color: #11a01b;
+            width: 60px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .user-info {
+            display: none;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-info.logged-in {
+            display: flex;
+        }
+
+        .user-avatar {
+            width: 24px;
+            height: 24px;
+            background: #007bff;
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            line-height: 24px;
+            font-size: 14px;
+        }
+
+        .logout-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <img src="photos/logo0001.png" alt="logo" class="logo">
+
+            <ul class="nav-center">
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="fundraiser.html">Fundraiser</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="mv.html">Missions & Values</a></li>
+                <li><a href="ecards.html">Send e-cards</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <a href="login.html" class="login-btn" id="loginBtn">Login</a>
+                <div class="user-info" id="userInfo">
+                    <div class="user-avatar" id="userAvatar">U</div>
+                    <span id="userName">Welcome, User!</span>
+                    <button class="logout-btn" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="ftext">
+                <h1>#IvoryFreeIndia</h1>
+                <p>In the past three years, 90 cases of seizure of elephant tusks/ivory have been reported in India along with 29 cases of poaching of elephants. The data were shared by the Ministry of Environment, Forest and Climate Change (MOEFCC) in the Lok Sabha on August 8.The highest number of cases of elephant tusk seizure was reported in 2021 with 42 cases, and incidents of poaching were the highest in the year 2021 with 14 incidents having been reported throughout the country. Meghalaya alone accounted for seven of the 14 poaching deaths. In the year 2018-19, six elephant deaths due to poaching were reported and nine poaching deaths were reported in 2019-20.</p>
+                <a href="https://www.thehindu.com/sci-tech/energy-and-environment/29-elephant-poaching-cases-in-3-years-centre/article65762352.ece">READ MORE</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="col-1">
+            <h3>Useful Links</h3>
+            <a href="#">About</a>
+            <a href="#">Service</a>
+            <a href="#">Contact</a>
+            <a href="#">Donate</a>
+        </div>
+
+        <div class="col-2">
+            <h3>newsletter</h3>
+            <form>
+                <input type="textarea" placeholder="Your E-mail"><br>
+                <button onclick="alert('your submission has been noted. thank you!')">Submit</button>
+            </form>
+        </div>
+
+        <div class="col-3">
+            <h3>Contact</h3>
+            <p>123,XYZ road, BSK 3</p>
+            <p>bangalore, karnataka, IN</p><br>
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li> 
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li> 
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li> 
+        </div>
+    </div>
+
+    <script>
+        // Call this function after login, with the actual username
+        function simulateLogin(username) {
+            document.getElementById('loginBtn').style.display = 'none';
+            const userInfo = document.getElementById('userInfo');
+            const userName = document.getElementById('userName');
+            const userAvatar = document.getElementById('userAvatar');
+
+            userInfo.classList.add('logged-in');
+            userName.textContent = `Welcome, ${username}!`;
+            userAvatar.textContent = username.charAt(0).toUpperCase();
+        }
+
+        function logout() {
+            document.getElementById('loginBtn').style.display = 'block';
+            document.getElementById('userInfo').classList.remove('logged-in');
+            // Optional: Clear session or local storage if you're using it
+        }
+
+        // Example for dynamic session-based login (you can integrate with backend logic)
+        window.addEventListener("DOMContentLoaded", () => {
+            // Replace this with backend session or cookie check
+            const username = sessionStorage.getItem("username");
+            if (username) {
+                simulateLogin(username);
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+   
